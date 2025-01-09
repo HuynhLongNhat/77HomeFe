@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../../../styles/ViewAppointment.scss";
 import {
   getAppointmentByRenter,
-} from "../../../service/AppointmentService";
+} from "../../../service/appointmentService";
 import AbortModalRenter from "./AbortModalRenter";
 import {
   createPaymentLink,
