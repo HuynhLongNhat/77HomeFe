@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./components/routes/AppRoutes";
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/77HomeFe">
     <AppRoutes/>
   </BrowserRouter>
 );

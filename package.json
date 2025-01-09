@@ -1,10 +1,13 @@
 {
+  "homepage": "https://huynhlongnhat.github.io/77HomeFe",
   "name": "77home-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
