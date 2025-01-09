@@ -3,7 +3,7 @@ import "../../../styles/ListAppointmentAdmin.scss";
 import {
   getAppointmentByOwner,
   acceptAppointmentByOwner,
-} from "../../../service/AppointmentService";
+} from "../../../service/appointmentService";
 import { toast } from "react-toastify";
 import RejectModalOwner from "./RejectModalOwner";
 
