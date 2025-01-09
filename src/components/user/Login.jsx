@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { Container, Form, Button, Row, Col, Spinner } from "react-bootstrap";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { IoMdLock } from "react-icons/io";
 import { IoMailOutline } from "react-icons/io5";
@@ -30,39 +30,44 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleFormSubmit = async (data) => {
-    try {
-      let res = await loginUser(data);
-      console.log("data", res);
-      if (res && res.EC === 0) {
-        // Lưu thông tin auth vào localStorage
-        localStorage.setItem("auth", JSON.stringify(res.DT));
-        toast.success("Đăng nhập thành công");
+   const handleFormSubmit = async (data) => {
+     setIsLoading(true);
+     try {
+       let res = await loginUser(data);
 
-        // Điều hướng dựa vào role
-        const userRole = res.DT.role?.DT?.[0];
-        if (userRole === "Admin") {
-          navigate("/admin/dashboard");
-        } else if (userRole === "Owner") {
-          navigate("/owner/dashboard");
-        } else {
-          navigate("/");
-        }
-      }
-      if (res && res.EC === -1) {
-        console.log("thất bại")
-        toast.error("Tài khoản hoặc mật khẩu không chính xác");
-      }
-    } catch (error) {
-      console.log("Error", error.message);
-      toast.error("Đăng nhập thất bại");
-    }
-  };
+       // Simulate loading with setTimeout
+       setTimeout(() => {
+         if (res && res.EC === 0) {
+           localStorage.setItem("auth", JSON.stringify(res.DT));
+           toast.success("Đăng nhập thành công");
+
+           const userRole = res.DT.role?.DT?.[0];
+           if (userRole === "Admin") {
+             navigate("/admin/dashboard");
+           } else if (userRole === "Owner") {
+             navigate("/owner/dashboard");
+           } else {
+             navigate("/");
+           }
+         }
+         if (res && res.EC === -1) {
+           console.log("thất bại");
+           toast.error("Tài khoản hoặc mật khẩu không chính xác");
+         }
+         setIsLoading(false);
+       }, 5000);
+     } catch (error) {
+       console.log("Error", error.message);
+       toast.error("Đăng nhập thất bại");
+       setIsLoading(false);
+     }
+   };
+
 
   return (
     <Container
@@ -158,15 +163,29 @@ const Login = () => {
           <Button
             variant="primary"
             type="submit"
-            onClick={() => handleFormSubmit()}
-            className="w-100 fw-semibold mb-3"
+            disabled={isLoading}
+            className="w-100 fw-semibold mb-3 d-flex align-items-center justify-content-center"
             style={{
               backgroundColor: "#5a67d8",
               borderColor: "#5a67d8",
               fontSize: "0.7rem",
             }}
           >
-            Sign In
+            {isLoading ? (
+              <>
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                  className="me-2"
+                />
+                Signing in...
+              </>
+            ) : (
+              "Sign In"
+            )}
           </Button>
         </Form>
 

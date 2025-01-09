@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, Spinner } from "react-bootstrap";
 import { AiOutlineEyeInvisible, AiFillEye } from "react-icons/ai";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -43,37 +43,43 @@ const Register = () => {
     resolver: yupResolver(schema),
   });
   const [showPassword, setShowPassword] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleFormSubmit = async (data) => {
-    // Prepare the data to be sent
-    const authData = {
-      citizenNumber: data.citizenNumber,
-      fullName: `${data.firstName} ${data.lastName}`,
-      email: data.email,
-      phone: data.phoneNumber,
-      password: data.password,
-    };
+ const handleFormSubmit = async (data) => {
+   setIsLoading(true);
 
-    try {
-      let res = await registerUser(authData);
-      console.log("res", res);
-      if (res && res.EC === 0) {
-      
-        toast.success("Đăng ký tài khoản thành công");
-        navigate("/login");
-      } else {
-        toast.error(res.EM);
-      }
-      // Check if registration is successful
-    } catch (error) {
-      console.error("Error:", error);
-      toast.error("Register failed!");
-    }
-  };
+   // Prepare the data to be sent
+   const authData = {
+     citizenNumber: data.citizenNumber,
+     fullName: `${data.firstName} ${data.lastName}`,
+     email: data.email,
+     phone: data.phoneNumber,
+     password: data.password,
+   };
+
+   try {
+     let res = await registerUser(authData);
+     console.log("res", res);
+
+     // Simulate loading with setTimeout
+     setTimeout(() => {
+       if (res && res.EC === 0) {
+         toast.success("Đăng ký tài khoản thành công");
+         navigate("/login");
+       } else {
+         toast.error(res.EM);
+       }
+       setIsLoading(false);
+     }, 5000);
+   } catch (error) {
+     console.error("Error:", error);
+     toast.error("Register failed!");
+     setIsLoading(false);
+   }
+ };
   return (
     <div className="container">
       <div className="d-flex justify-content-center align-items-center vh-100 ">
@@ -235,9 +241,24 @@ const Register = () => {
             <Button
               style={{ backgroundColor: "#4A4A4A" }}
               type="submit"
-              className="w-100 fw-semibold"
+              className="w-100 fw-semibold d-flex align-items-center justify-content-center"
+              disabled={isLoading}
             >
-              Sign up
+              {isLoading ? (
+                <>
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                    className="me-2"
+                  />
+                  Signing up...
+                </>
+              ) : (
+                "Sign up"
+              )}
             </Button>
           </Form>
           {/* Login Link */}

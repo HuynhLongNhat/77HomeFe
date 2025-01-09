@@ -2,11 +2,11 @@ import axios from "axios";
 
 // Set config defaults when creating the instance
 const instance = axios.create({
-  // baseURL: "http://localhost:8080/api/v1",
-  baseURL: "https://seven7home-be-1.onrender.com/api/v1",
-  // baseURL: process.env.process.REACT_APP_BACKEND_URL
+// baseURL: "https://seven7home-be-1.onrender.com/api/v1",
+baseURL: "http://localhost:8080/api/v1",
+  timeout: 10000,
+  withCredentials: true,
 });
-
 instance.defaults.withCredentials = true;
 
 // Add a request interceptor
