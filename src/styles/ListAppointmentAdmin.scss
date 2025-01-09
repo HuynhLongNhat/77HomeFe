@@ -1,0 +1,139 @@
+.appointment-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  color: #333;
+  margin-bottom: 24px;
+  font-size: 28px;
+}
+
+.filter-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.search-input,
+.filter-select,
+.date-filter {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.appointments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.appointment-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.appointment-card:hover {
+  transform: translateY(-4px);
+}
+
+.appointment-header {
+  padding: 16px;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.appointment-date {
+  color: #666;
+  font-size: 14px;
+}
+
+.appointment-body {
+  padding: 16px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.info-row i {
+  width: 20px;
+  margin-right: 12px;
+  color: #666;
+}
+
+.appointment-actions {
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid #eee;
+}
+
+.action-button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.action-button.edit {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.action-button.edit:hover {
+  background: #bbdefb;
+}
+
+.action-button.delete {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.action-button.delete:hover {
+  background: #ffcdd2;
+}
+
+@media (max-width: 768px) {
+  .appointment-container {
+    padding: 16px;
+  }
+  
+  .filter-section {
+    flex-direction: column;
+  }
+  
+  .search-input,
+  .filter-select,
+  .date-filter {
+    width: 100%;
+  }
+}

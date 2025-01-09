@@ -1,0 +1,156 @@
+.booking-container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  max-width: 600px;
+  margin: 0 auto;
+
+  .booking-header {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    h3 {
+      color: #1a1a1a;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .room-card {
+    background: linear-gradient(145deg, #f6f8fd 0%, #f1f4f9 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+
+    .room-info {
+      h5 {
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .room-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+
+        .detail-item {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #666;
+
+          i {
+            color: #4a90e2;
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .booking-form {
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        font-weight: 500;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .custom-input,
+    .custom-textarea {
+      border: 2px solid #e1e8ed;
+      border-radius: 8px;
+      padding: 0.8rem;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+
+      &:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+    }
+
+    .date-picker {
+      width: 100%;
+    }
+
+    .custom-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button {
+      flex: 1;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .cancel-btn {
+      border: 2px solid #e1e8ed;
+      color: #666;
+
+      &:hover {
+        background-color: #f8f9fa;
+      }
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, #4a90e2, #5ca0eb);
+      border: none;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+      }
+    }
+  }
+}
+
+// Custom DatePicker styles
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker {
+  font-family: inherit;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker__header {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #e1e8ed;
+}
+
+.react-datepicker__day--selected {
+  background-color: #4a90e2 !important;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .booking-container {
+    padding: 1.5rem;
+  }
+
+  .room-card {
+    padding: 1rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,40 @@
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background-color: #343a40;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+.sidebarHeader {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navLink {
+  color: white !important;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navLink svg {
+  margin-right: 0.5rem;
+}
+
+.logoutLink {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+}

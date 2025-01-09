@@ -1,0 +1,213 @@
+/* Layout chính */
+.d-flex {
+  display: flex !important;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Sidebar styling */
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding: 24px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Container modifications */
+.container-fluid {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Users List Card */
+.card {
+  margin: 0 !important;
+  width: 100% !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+  background: #fff !important;
+}
+
+.card-header {
+  background: #fff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  padding: 20px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+/* Table styling */
+.table-responsive {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.table {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  padding: 15px 20px !important;
+  border-bottom: 2px solid #dee2e6;
+  color: #2c3e50;
+}
+
+.table td {
+  padding: 15px 20px !important;
+  vertical-align: middle;
+}
+
+/* Stats cards row */
+.row {
+  margin: 0 -12px 24px -12px !important;
+  width: calc(100% + 24px) !important;
+}
+
+/* Stats card columns */
+.col-md-4 {
+  padding: 0 12px !important;
+}
+
+/* Stats cards */
+.hover-card {
+  transition: all 0.3s ease;
+  border: none !important;
+  border-radius: 12px !important;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  height: 100%;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons styling */
+.btn-sm {
+  padding: 0.4rem 1rem !important;
+  font-size: 0.875rem !important;
+  border-radius: 6px !important;
+  margin: 0 3px !important;
+}
+
+/* Badge styling */
+.badge {
+  padding: 0.5em 1em !important;
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 240px;
+    min-width: 240px;
+  }
+
+  .main-content {
+    margin-left: 240px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+/* Custom scrollbar */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Search bar styling */
+.search-bar {
+  margin-bottom: 1.5rem;
+}
+
+/* Pagination styling */
+:global(.pagination) {
+  gap: 5px;
+}
+
+:global(.pagination .page-item) {
+  margin: 0 2px;
+}
+
+:global(.page-item .page-link) {
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+  color: #0d6efd;
+  padding: 8px 16px;
+}
+
+:global(.page-item.active .page-link) {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: white;
+}
+
+:global(.page-item:not(.active) .page-link:hover) {
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+  color: #0a58ca;
+}
+
+:global(.page-item.disabled .page-link) {
+  color: #6c757d;
+  pointer-events: none;
+  background-color: #fff;
+  border-color: #dee2e6;
+}

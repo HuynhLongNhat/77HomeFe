@@ -1,0 +1,76 @@
+.header-navbar {
+  padding: 0.5rem 1rem;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .brand-text {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #5a67d8;
+  }
+
+  .profile-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .notifications-menu {
+    width: 300px;
+    padding: 0;
+
+    .notification-item {
+      padding: 0.75rem 1rem;
+
+      &:hover {
+        background-color: #f8f9fa;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.875rem;
+      }
+
+      small {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .dropdown-toggle::after {
+    display: none;
+  }
+
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+
+    &:hover, &:focus {
+      background: #f8f9fa;
+    }
+  }
+
+  .nav-link {
+    color: #6b7280;
+    padding: 0.5rem 1rem;
+    
+    &:hover {
+      color: #5a67d8;
+    }
+  }
+}
