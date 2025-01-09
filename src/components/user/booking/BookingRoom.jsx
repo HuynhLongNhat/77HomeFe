@@ -5,8 +5,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../../../styles/BookingRoom.scss";
 import { toast } from "react-toastify";
-import { createNewAppoitment } from "../../../service/AppointmentService";
-import { updateRoom } from "../../../service/AppointmentService";
+import { createNewAppoitment } from "../../../service/appointmentService";
+import { updateRoom } from "../../../service/appointmentService";
 const BookingRoom = ({ roomData, onClose, fetchAllHouse }) => {
   const auth = JSON.parse(localStorage.getItem("auth"));
   console.log("citizen", auth.id);

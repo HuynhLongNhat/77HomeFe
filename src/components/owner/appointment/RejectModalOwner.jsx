@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import { rejectAppointmentByOwner } from "../../../service/AppointmentService";
+import { rejectAppointmentByOwner } from "../../../service/appointmentService";
 import { toast } from "react-toastify";
 const RejectModalOwner = ({
   show,
